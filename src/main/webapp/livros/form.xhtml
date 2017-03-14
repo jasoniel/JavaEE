@@ -7,7 +7,7 @@ xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:body>
 	<h:messages/>
-	<h:form prependId="false">
+	<h:form prependId="false" enctype="multipart/form-data">
 		<div>
 			<h:outputLabel>Titulo</h:outputLabel>
 			<h:inputText value="#{adminBooksBean.product.title}"  id="titulo" />
@@ -26,10 +26,10 @@ xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 		</div>
 		<div>
 			<h:outputLabel>Autores</h:outputLabel>
-			<h:selectManyListbox value="#{adminBooksBean.selectedAuthorsIds}" converter="javax.faces.Integer" >
+			<h:selectManyListbox value="#{adminBooksBean.product.authors}"  converter="entityConverter" >
 				
 				<f:selectItems value="#{adminBooksBean.authors}" 
-				var="author" itemLabel="#{author.name}" itemValue="#{author.id}"></f:selectItems>
+				var="author" itemLabel="#{author.name}" itemValue="#{author}"></f:selectItems>
 				
 			</h:selectManyListbox>
 		</div>
@@ -38,6 +38,10 @@ xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 			<h:inputText value="#{adminBooksBean.product.releaseDate}" pt:type="Date">
 
 			</h:inputText>
+		</div>
+		<div>
+			<h:outputLabel value="Capa do Livro"/>
+			<h:inputFile id="summary" value="Sumário do livro" />
 		</div>
 		
 		<h:commandButton value="Gravar" action="#{adminBooksBean.save}" />
