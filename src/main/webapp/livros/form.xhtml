@@ -41,7 +41,7 @@ xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 		</div>
 		<div>
 			<h:outputLabel value="Capa do Livro"/>
-			<h:inputFile id="summary" value="Sumário do livro" />
+			<h:inputFile id="summary" value="#{adminBooksBean.summary}" label="Sumário do livro" />
 		</div>
 		
 		<h:commandButton value="Gravar" action="#{adminBooksBean.save}" />

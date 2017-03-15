@@ -2,12 +2,10 @@ package br.com.casadocodigo.loja.managedbeans.admin;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.http.Part;
 import javax.transaction.Transactional;
@@ -27,8 +25,7 @@ public class AdminBooksBean {
 	@Inject
 	private FileSaver fileSave;
 	
-	@Inject
-	private FacesContext facesContext ;
+	
 	
 	@Inject
 	private MessagesHelper messagesHelper;
@@ -47,6 +44,7 @@ public class AdminBooksBean {
 	@Transactional
 	public String save(){
 		
+		
 		String summaryPath = fileSave.writer("summaries",summary);
 			
 		bookDAO.save(product);
@@ -63,7 +61,7 @@ public class AdminBooksBean {
 	@PostConstruct
 	@Transactional
 	private void loadObjects(){
-		this.authors = authorDAO.list();
+		authors = authorDAO.list();
 	}
 
 	
@@ -81,5 +79,13 @@ public class AdminBooksBean {
 	public void setSummary(Part summary) {
 		this.summary = summary;
 	}
+
+
+
+	public List<Author> getAuthors() {
+		return authors;
+	}
+
+
 
 }

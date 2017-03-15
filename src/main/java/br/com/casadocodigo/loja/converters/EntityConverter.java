@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import javax.faces.component.UIComponent;
-import javax.faces.component.UISelectItem;
 import javax.faces.component.UISelectItems;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
