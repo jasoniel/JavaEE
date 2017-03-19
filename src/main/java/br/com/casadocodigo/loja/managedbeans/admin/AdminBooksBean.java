@@ -21,6 +21,7 @@ import br.com.casadocodigo.loja.models.Book;
 public class AdminBooksBean {
 	
 	private Part summary;
+	private Part cover;
 	
 	@Inject
 	private FileSaver fileSave;
@@ -38,14 +39,14 @@ public class AdminBooksBean {
 	@Inject
 	private AuthorDAO authorDAO;
 	
-	
 	private List<Author> authors = new ArrayList<>();
 	
 	@Transactional
 	public String save(){
 		
 		
-		String summaryPath = fileSave.writer("summaries",summary);
+		product.setSummaryPath(fileSave.writer("summaries",summary));
+		product.setCoverPath(fileSave.writer("covers",cover));
 			
 		bookDAO.save(product);
 		
@@ -61,14 +62,18 @@ public class AdminBooksBean {
 	@PostConstruct
 	@Transactional
 	private void loadObjects(){
-		authors = authorDAO.list();
+		this.authors =authorDAO.list();
+		
+		System.out.println("Quantidade : "+ authors.size());
+		
 	}
+
+	public List<Author> getAuthors() {
+		return authors;
+	}
+
 
 	
-
-	public Book getProduct() {
-		return product;
-	}
 
 	
 
@@ -82,9 +87,32 @@ public class AdminBooksBean {
 
 
 
-	public List<Author> getAuthors() {
-		return authors;
+	public Part getCover() {
+		return cover;
 	}
+
+
+
+	public void setCover(Part cover) {
+		this.cover = cover;
+	}
+
+
+
+	
+
+	public Book getProduct() {
+		return product;
+	}
+
+
+	
+
+
+
+
+	
+
 
 
 

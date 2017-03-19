@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Future;
@@ -50,6 +49,7 @@ public class Book {
 	private Calendar releaseDate;
 	
 	private String summaryPath;
+	private String coverPath;
 	
 	
 	
@@ -107,6 +107,11 @@ public class Book {
 	public void setSummaryPath(String summaryPath) {
 		this.summaryPath = summaryPath;
 	}
-	
+	public String getCoverPath() {
+		return coverPath;
+	}
+	public void setCoverPath(String coverPath) {
+		this.coverPath = coverPath;
+	}
 
 }

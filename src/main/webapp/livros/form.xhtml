@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
+xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns="http://www.w3.org/1999/xhtml"
 xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
@@ -24,7 +24,7 @@ xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 			<h:outputLabel>Preço</h:outputLabel>
 			<h:inputText value="#{adminBooksBean.product.price}"  id="preco"/>
 		</div>
-		<div>
+		<div> 
 			<h:outputLabel>Autores</h:outputLabel>
 			<h:selectManyListbox value="#{adminBooksBean.product.authors}"  converter="entityConverter" >
 				
@@ -39,8 +39,12 @@ xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 			</h:inputText>
 		</div>
+		<div> 
+			<h:outputLabel value="Capa do livro"/>
+			<h:inputFile id="cover" value="#{adminBooksBean.cover}" label="Capa do livro" />
+		</div>
 		<div>
-			<h:outputLabel value="Capa do Livro"/>
+			<h:outputLabel value="Sumário do livro"/>
 			<h:inputFile id="summary" value="#{adminBooksBean.summary}" label="Sumário do livro" />
 		</div>
 		
